@@ -11,6 +11,7 @@ import { usePlatform } from '../../hooks/usePlatform';
 import { withAdaptivity, AdaptivityProps, SizeType } from '../../hoc/withAdaptivity';
 import { Platform, VKCOM } from '../../lib/platform';
 import { useButton } from '@react-aria/button';
+import { useFocusRing } from '@react-aria/focus';
 
 export interface VKUIButtonProps extends HasAlign {
   mode?: 'primary' | 'secondary' | 'tertiary' | 'outline' | 'commerce' | 'destructive' | 'overlay_primary' | 'overlay_secondary' | 'overlay_outline';
@@ -94,15 +95,16 @@ const Button: FunctionComponent<ButtonProps> = (props: ButtonProps) => {
   // looks like it's not our fault
   // @ts-ignore
   const { buttonProps } = useButton({ ...restProps, elementType: Component }, buttonRef);
-  // const { isFocusVisible, focusProps } = useFocusRing();
+  const { isFocusVisible, focusProps } = useFocusRing();
   // onPointerDown переписывает текущую логику подсветки в Tappable
   const { onPointerDown, ...restButtonProps } = buttonProps;
 
-  console.log('Button.tsx, 101, no useFocusRing');
+  console.log('VKUI — Button.tsx, 102, w/ useFocusRing');
 
   return (
     <Tappable
       {...restButtonProps}
+      {...focusProps}
       {...restProps}
       vkuiClass={
         classNames(
@@ -114,6 +116,7 @@ const Button: FunctionComponent<ButtonProps> = (props: ButtonProps) => {
           {
             'Button--str': stretched,
             'Button--with-icon': hasIcons,
+            'Button--focus-visible': isFocusVisible,
           },
         )
       }
