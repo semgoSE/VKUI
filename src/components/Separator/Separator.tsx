@@ -11,12 +11,13 @@ export interface SeparatorProps extends HTMLAttributes<HTMLDivElement> {
   expanded?: boolean;
 }
 
-let Separator: FunctionComponent<SeparatorProps> = ({ wide, expanded, ...restProps }: SeparatorProps) => {
+const Separator: FunctionComponent<SeparatorProps> = ({ wide, expanded, ...restProps }: SeparatorProps) => {
   const platform = usePlatform();
 
   return (
     <div
       {...restProps}
+      aria-hidden="true"
       vkuiClass={classNames(getClassName('Separator', platform), {
         'Separator--wide': wide,
       })}
