@@ -27,6 +27,7 @@ const Tabs: FunctionComponent<TabsProps> = ({
 
   return (
     <div
+      role="tablist"
       {...restProps}
       ref={getRootRef}
       vkuiClass={classNames(getClassName('Tabs', platform), `Tabs--${mode}`, `Tabs--sizeX-${sizeX}`)}

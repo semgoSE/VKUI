@@ -33,7 +33,9 @@ const TabsItem: FunctionComponent<TabsItemProps> = ({
   return (
     <Tappable
       {...restProps}
+      role="tab"
       vkuiClass={classNames(getClassName('TabsItem', platform), { 'TabsItem--selected': selected })}
+      aria-selected={selected}
       hasActive={mode === 'segmented'}
       activeMode="TabsItem--active"
     >
