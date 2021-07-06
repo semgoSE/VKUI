@@ -37,8 +37,8 @@ const TabsItem: FunctionComponent<TabsItemProps> = ({
       hasActive={mode === 'segmented'}
       activeMode="TabsItem--active"
     >
-      <TypographyComponent vkuiClass="TabsItem__in" weight="medium">{children}</TypographyComponent>
-      {hasReactNode(after) && <div vkuiClass="TabsItem__after">{after}</div>}
+      <TypographyComponent Component="span" vkuiClass="TabsItem__in" weight="medium">{children}</TypographyComponent>
+      {hasReactNode(after) && <span vkuiClass="TabsItem__after">{after}</span>}
     </Tappable>
   );
 };
