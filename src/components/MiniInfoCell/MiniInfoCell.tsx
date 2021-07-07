@@ -64,14 +64,12 @@ export const MiniInfoCell: FC<MiniInfoCellProps> = (props: MiniInfoCellProps) =>
   return (
     <Component
       {...restProps}
-      vkuiClass={classNames(getClassName('MiniInfoCell', platform), {
+      vkuiClass={classNames(getClassName('MiniInfoCell', platform), `MiniInfoCell--lvl-${textLevel}`, {
         [`MiniInfoCell--md-${mode}`]: mode !== 'base',
         [`MiniInfoCell--wr-${textWrap}`]: textWrap !== 'nowrap',
-      }, `MiniInfoCell--lvl-${textLevel}`)}
+      })}
     >
-      <div vkuiClass="MiniInfoCell__icon">
-        {before}
-      </div>
+      <span vkuiClass="MiniInfoCell__icon">{before}</span>
       <Text
         Component="span"
         vkuiClass="MiniInfoCell__content"
@@ -79,11 +77,7 @@ export const MiniInfoCell: FC<MiniInfoCellProps> = (props: MiniInfoCellProps) =>
       >
         {children}
       </Text>
-      {hasReactNode(after) &&
-      <div vkuiClass="MiniInfoCell__after">
-        {after}
-      </div>
-      }
+      {hasReactNode(after) && <span vkuiClass="MiniInfoCell__after">{after}</span>}
     </Component>
   );
 };
