@@ -44,11 +44,21 @@
 }
 
 /*
- iOS
+ * iOS
  */
-
 .Tabs--ios.Tabs--segmented {
   padding: 4px 12px 8px;
+}
+
+/*
+ * .Group
+ */
+.Group--plain .Group__inner > .Tabs--default:first-child {
+  margin-top: -8px;
+}
+
+.Group--card > .Group__inner > .Tabs--default:first-child {
+  margin-top: -4px;
 }
 
 /* Нужно для закрашивания прозрачной области нижнего инсета на iphone x */
